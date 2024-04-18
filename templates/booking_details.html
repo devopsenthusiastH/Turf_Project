@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Display Bookings</title>
+    <style>
+        /* Basic table styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Button style */
+        .generate-pdf-btn,
+        .cancel-booking-btn,
+        .print-receipt-btn {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .generate-pdf-btn:hover,
+        .cancel-booking-btn:hover,
+        .print-receipt-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Centering the h1 */
+        .center {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the heading */
+        .booking-heading {
+            font-family: 'Anton', sans-serif;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <h1 class="booking-heading">YOUR BOOKINGS</h1>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Book Date</th>
+                <th>Description</th>
+                <th>Slot Selected</th>
+                <th>Venue</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.book_date }}</td>
+                <td>{{ booking.description }}</td>
+                <td>{{ booking.slot }}</td>
+                <td>{{ booking.venue }}</td>
+                <td>
+                    <button class="print-receipt-btn" onclick="printReceipt(this)">Generate PDF</button>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+
+
+
+        function printReceipt(button) {
+            // Get the row of the clicked button
+            var row = button.parentNode.parentNode;
+
+            // Extract booking details from the row
+            var name = row.cells[0].innerText;
+            var bookDate = row.cells[1].innerText;
+            var description = row.cells[2].innerText;
+            var slot = row.cells[3].innerText;
+            var venue = row.cells[4].innerText;
+
+            // Construct receipt content
+            var receiptContent = "---------------------------------\n";
+            receiptContent += "                RECEIPT         \n";
+            receiptContent += "---------------------------------\n\n";
+            receiptContent += "Name:      " + name + "\n";
+            receiptContent += "Book Date: " + bookDate + "\n";
+            receiptContent += "Description:\n" + description +    "\n";
+            receiptContent += "Slot:      " + slot + "\n";
+            receiptContent += "Venue:     " + venue + "\n";
+            receiptContent += "---------------------------------\n";
+
+
+            // Open a new window and write receipt content for printing
+            var printWindow = window.open('', '_blank');
+            printWindow.document.write('<pre>' + receiptContent + '</pre>');
+            printWindow.document.close();
+
+            // Print the receipt
+            printWindow.print();
+
+        }
+
+ 
+        
+    </script>
+</body>
+
+</html>
+{% endblock %}
