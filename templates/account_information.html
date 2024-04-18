@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %} 
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('{% static "images/turf_1.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #logo {
+            text-align: center;
+            font-size: 50px; /* Adjust the font size as needed */
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        li strong {
+            color: #333;
+        }
+        li span {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="logo"> Z<span
+        style="color: #40bd27;">-</span>TURF<span
+                style="color: #40bd27;">.</span>
+    </div>
+    <div class="container">
+        <h1>Account Information</h1>
+        <ul>
+            <li><strong>First Name:</strong> <span>{{ user.first_name }}</span></li>
+            <li><strong>Last Name:</strong> <span>{{ user.last_name }}</span></li>
+            <li><strong>Email:</strong> <span>{{ user.email }}</span></li>
+             
+        </ul>
+    </div>
+</body>
+</html>
+
+
+{% endblock %}

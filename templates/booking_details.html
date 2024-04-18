@@ -78,6 +78,7 @@
                 <th>Slot Selected</th>
                 <th>Venue</th>
                 <th>Actions</th>
+                 
             </tr>
         </thead>
         <tbody>
@@ -88,9 +89,10 @@
                 <td>{{ booking.description }}</td>
                 <td>{{ booking.slot }}</td>
                 <td>{{ booking.venue }}</td>
+                 
                 <td>
                     <button class="print-receipt-btn" onclick="printReceipt(this)">Generate PDF</button>
-                    
+
                 </td>
             </tr>
             {% endfor %}
@@ -118,7 +120,7 @@
             receiptContent += "---------------------------------\n\n";
             receiptContent += "Name:      " + name + "\n";
             receiptContent += "Book Date: " + bookDate + "\n";
-            receiptContent += "Description:\n" + description +    "\n";
+            receiptContent += "Description:\n" + description + "\n";
             receiptContent += "Slot:      " + slot + "\n";
             receiptContent += "Venue:     " + venue + "\n";
             receiptContent += "---------------------------------\n";
@@ -134,8 +136,8 @@
 
         }
 
- 
-        
+
+
     </script>
 </body>
 

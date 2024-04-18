@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
+
+ 
+
 # from django.contrib.auth import User
 # Create your models here.
 
@@ -39,3 +43,12 @@ class Booking(models.Model):
         return self.name
 
 # class Cancellation(models.Model):
+
+class Rating(models.Model):
+    booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
+    user = models.ForeignKey(MyUsers, on_delete=models.CASCADE)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    feedback = models.TextField()
+
+    def __str__(self):
+        return f"Rating for {self.booking.name} by {self.user.first_name} "

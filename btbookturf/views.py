@@ -16,8 +16,13 @@ from .models import Booking
 from django.contrib.auth.decorators import login_required
 
  
+#----------------------------------------------------------------
+#--------------for ratings--------------------------------------
  
-
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .models import MyUsers
+#----------------------------------------------------------------
 
 # ---------> PDF Genaration
 from django.http import FileResponse
@@ -215,7 +220,7 @@ def saveBooking(request,name):
 
 
  
-
+#display bookings
 @login_required
 def booking(request):
     current_user = request.user
@@ -226,6 +231,13 @@ def booking(request):
     return render(request, "booking_details.html", data)
 
 
+#---------------------------------------------------------------- 
+@login_required
+def account_information(request):
+    user = request.user
+    return render(request, 'account_information.html', {'user': user})
+
+#----------------------------------------------------------------
  
 
 def book_receipt(request):

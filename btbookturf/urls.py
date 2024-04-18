@@ -1,5 +1,6 @@
 from . import views
 from django.urls import path
+ 
 
 #URLConf
 urlpatterns = [
@@ -10,7 +11,7 @@ urlpatterns = [
     path('bookingreceipt/',views.book_receipt, name='receipt'),
     path('booking/',views.booking,name="booking_turf"),
      
-
+     path('account_information/', views.account_information, name='account_information'),
 
  
 

@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
 
-	<title>Turf</title>
+	<title>Z-TURF .</title>
 
 	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="" />
@@ -122,6 +122,8 @@
 				content: "";
 			}
 
+
+
 		}
 	</style>
 </head>
@@ -135,7 +137,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="fh5co-logo"><a href="{% url 'home' %}">Z-TURF<span
+							<div id="fh5co-logo"><a href="{% url 'home' %}">Z<span
+								style="color: #40bd27;">-</span>TURF<span
 										style="color: #40bd27;">.</span></a>
 							</div>
 						</div>
@@ -150,17 +153,41 @@
 
 								<li><a href="{% url 'bookIt' %}">Book Your Slot</a></li>
 
-								 
 
 
-								
+
+
 
 
 
 
 								{% if user.is_authenticated %}
-								<li><a href=" {% url 'booking_turf'%}">My Bookings</a></li>
-								<li class="btn-cta"><a href="{% url 'logout' %}"><span>Logout</span></a></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+										aria-haspopup="true" aria-expanded="false" style="color: ivory;">Action <span
+											class="caret"></span></a>
+									<ul class="dropdown-menu"
+										style="text-align: center; background-color: rgba(255, 255, 255, 0);">
+										<li><a href="{% url 'booking_turf' %}"
+												style="color: rgb(255, 255, 255); ">MyBookings</a></li>
+										<li><a href="{% url 'booking_turf' %}"
+												style="color: rgb(255, 255, 255); ">Ratings</a></li>
+
+
+										<li role="separator" class="divider"></li>
+										<li><a href="{% url 'logout' %}" style="color: rgb(255, 255, 255);">Logout</a>
+										</li>
+									</ul>
+								</li>
+								
+								<li>
+									<a href="{% url 'account_information' %}">
+										<i class="fa fa-user fa-1x" aria-hidden="true"></i> <!-- User profile icon -->
+										<span style="color: #ffffff;">account</span>
+									</a>
+								</li>
+								
+								
 								{% else %}
 								<li class="btn-cta"><a href="{% url 'login' %}"><span>Login</span></a></li>
 								<span class="break_line"> </span>
@@ -208,15 +235,20 @@
 							</div>
 							<div class="col-md-6">
 								<div style="position: relative; margin: 100px 0;">
-									<blockquote><p>Our mission is making it easier for everyone to Book turf easily and  utilisation of facilities as a result.
-<br><br>
- 
-										Z-Turf play a pivotal role in bringing people together, sharing moments and enhancing the well-being are reasons that form the essence of Z-Turf.
-										
-<br><br>
-Our Goal is making the Simple booking system
-<br><br>
-										#LetBookWithUs</p></blockquote>
+									<blockquote>
+										<p>Our mission is making it easier for everyone to Book turf easily and
+											utilisation of facilities as a result.
+											<br><br>
+
+											Z-Turf play a pivotal role in bringing people together, sharing moments and
+											enhancing the well-being are reasons that form the essence of Z-Turf.
+
+											<br><br>
+											Our Goal is making the Simple booking system
+											<br><br>
+											#LetBookWithUs
+										</p>
+									</blockquote>
 								</div>
 							</div>
 						</div>
@@ -225,7 +257,7 @@ Our Goal is making the Simple booking system
 				<div class="row copyright">
 					<div class="col-md-12 text-center">
 						<p>
-							<small class="block">&copy; #ZTurfReserveToday  </small>
+							<small class="block">&copy; #ZTurfReserveToday </small>
 							<small class="block">🌿✨</small>
 						</p>
 						{% comment %} <p>
