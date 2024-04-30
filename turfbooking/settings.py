@@ -31,7 +31,12 @@ ALLOWED_HOSTS = ["127.0.0.1","192.168.0.111"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+
+     'material',
+     'material.admin',
+
+    
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'btbookturf',
     'members',
+     
     
 ]
 

@@ -35,7 +35,7 @@ class Booking(models.Model):
     name = models.CharField(max_length=100)
     book_date=models.DateField()
     venue = models.ForeignKey(Ground,blank=True,null=True,on_delete=models.CASCADE)
-    # manager = models.ForeignKey(User, blank=True,null=True,on_delete=models.SET_NULL)
+     
     slot = models.ForeignKey(Slot,blank=True,null=True,on_delete=models.CASCADE)
     description= models.TextField(blank=True)
     attendees=models.ManyToManyField(MyUsers,blank=True)
