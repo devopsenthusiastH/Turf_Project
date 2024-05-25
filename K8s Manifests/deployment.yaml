@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: turf-deployment
+  labels:
+    app: turf
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: turf
+  template:
+    metadata:
+      labels:
+        app: turf
+    spec:
+      containers:
+        - name: turf
+          image: aakashhandibar/turf:v2.1
+          ports:
+            - containerPort: 3000
